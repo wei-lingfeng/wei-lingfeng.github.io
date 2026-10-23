@@ -11,7 +11,7 @@ permalink: /
       <div class="col-md-10 col-md-offset-2">
         <div class="block">
           <h1 class="animated fadeInUp">LINGFENG WEI</h1>
-          <p class="animated fadeInUp">GRADUATE STUDENT AT UCSD</p>
+          <p class="animated fadeInUp">POSTDOCTORAL SCHOLAR AT UCLA</p>
         </div>
       </div>
     </div>
@@ -27,7 +27,9 @@ permalink: /
           <div class="section-title">
             <h2>About Me</h2>
           </div>
-          <p>I am currently a graduate student at the <a href="https://cass.ucsd.edu/index.php/Main_Page" target="_blank">Center of Astrophysics and Space Sciences</a>, University of California, San Diego. My research interests extends broadly in both theoretical and observational topics in astronomy. Currently, I am working on stellar kinematics at The Orion Nebula with <a href="http://konopackygroup.ucsd.edu/" target="_blank">Prof. Konopacky</a>, using the observational data acquired from the <a href="http://www.keckobservatory.org/" target="_blank">W. M. Keck Observatory</a>. Previously, I also worked on simulations and theories of long-time evolution of exoplanets with <a href="http://www.astro.ucla.edu/~snaoz/" target="_blank">Prof. Naoz</a> at University of California, Los Angeles.</p>
+          <p>I am a postdoctoral scholar in <a href="https://astro.ucla.edu/~tdo/" target="_blank">Prof. Tuan Do's group</a> at the University of California, Los Angeles, and received my Ph.D. in Physics from the University of California, San Diego in 2025. I build scientific software, probabilistic models, and deep-learning inference tools for large astronomical datasets: computer vision on telescope images, Bayesian inference and MCMC, neural posterior estimation, and high-performance Python. Along the way I have turned slow research code into fast pipelines, including a 600&times; faster neural inference model, a 67&times; parallelized geometry algorithm, and a 500&ndash;1000&times; batched fitting engine in an open-source package.</p>
+          <p>I am interested in roles in scientific computing, software engineering, and machine learning engineering.</p>
+          <p><a href="files/CV_LingfengWei.pdf" target="_blank" style="font-weight: bold;"><i class="fa fa-file-pdf-o"></i> Download my CV</a></p>
         </div>
       </div><!-- .col-md-7 close -->
       <div class="col-md-5 col-sm-12">
@@ -48,21 +50,173 @@ permalink: /
       <div class="section-title">
         <h2>Research</h2>
       </div>
-      <div class="research-title">
-        <a href="#">Stability of Hierarchical Planet Systems</a>
-      </div>
-      <p>
-        Planet’s long-time (secular) orbital evolution are affected by various dynamical processes. In a system with two close inner earth-sized planets and a massive outer companion, we try to predict the stability of such a hierarchical system from its initial conditions. By considering the star-planet, planet-planet and distant companion-planet interaction, we present an analytical criterion of whether a system is stable in a long period of time. These three interactions are described by general relativity, Laplace-Lagrange secular theory and eccentric Kozai-Lidov effect, respectively. This result spares us from the redundancy to run computation-consuming simulations, and serve as a potential method to predict the existence of undiscovered distant companions from the behavior of observed planets.
-      </p>
-      
-      <hr style="border-width: 1px;">  
+    </div>
 
-      <div class="research-title">
-        <a href="#">Kinematic Map of Orion Nebula Cluster</a>
+    <div class="row research-item">
+      <div class="col-md-5 col-sm-12">
+        <figure class="research-figure">
+          <img class="img-responsive" src="img/research/jwst_mosaic.jpg" alt="JWST NIRCam mosaic of the Galactic Center, showing three scans and the detector footprints of every exposure">
+          <figcaption>JWST NIRCam mosaic of the Nuclear Star Cluster: three scans, with the detector footprint of each exposure that the astrometry pipeline registers.</figcaption>
+        </figure>
       </div>
-      <p>
-        We seek to build a three-dimensional kinematic map of the stars near the center of Orion Nebula Cluster using the observational data from the W. M. Keck Observatory. As Orion Nebula Cluster is the nearest site of ongoing massive star formation, this would help us better understand the formation of stars. 
-      </p>
+      <div class="col-md-7 col-sm-12">
+        <div class="research-title">
+          <a>Formation and Evolution of the Nuclear Star Cluster</a>
+        </div>
+        <p class="research-meta">UCLA &middot; 2025&ndash;present &middot; Advisor: <a href="https://astro.ucla.edu/~tdo/" target="_blank">Prof. Tuan Do</a></p>
+        <p class="research-tags">JWST NIRCam &middot; Astrometry &middot; PSF fitting &middot; Image registration &middot; KD-tree &middot; ~2 TB of imaging data</p>
+        <p>
+          The Nuclear Star Cluster at the center of the Milky Way is one of the most crowded fields in the sky: a single James Webb Space Telescope image contains more than 300,000 stars. I am building a precise astrometry pipeline that measures proper motions from JWST NIRCam images, fitting the point-spread function iteratively and registering images across pointings by KD-tree matching, over about 2 TB of imaging data. With it, I model the stellar density profile to separate the Nuclear Star Cluster from the nuclear stellar disk, and characterize the cluster's internal kinematics to test predictions of how it formed.
+        </p>
+      </div>
+    </div>
+
+    <hr class="research-sep">
+
+    <div class="row research-item">
+      <div class="col-md-10 col-md-offset-1 col-sm-12">
+        <figure class="research-figure">
+          <img class="img-responsive" src="img/research/npe_arch.png" alt="Model architecture: ResNet and GRU feature extractor followed by a normalizing flow that outputs the posterior">
+          <figcaption>Model architecture: a ResNet-GRU feature extractor feeds a normalizing flow that outputs the posterior.</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-12">
+        <div class="research-title">
+          <a href="https://github.com/wei-lingfeng/NPE-Stellar-Spectra" target="_blank">Neural Posterior Estimation of Stellar Spectra</a>
+        </div>
+        <p class="research-meta">UCSD &middot; 2024 &middot; 5-person team</p>
+        <p class="research-tags">PyTorch &middot; CUDA &middot; ResNet &middot; GRU &middot; Normalizing flows &middot; Simulation-based inference</p>
+        <p>
+          Inferring a star's properties from its spectrum normally means running MCMC for every star. We trained a neural network once and then inferred posteriors directly. I generated 50,000 simulated spectra and trained a ResNet-GRU feature extractor with a normalizing flow on GPUs to infer five stellar parameters. Amortized inference brought the cost per star from about 30 minutes to 3 seconds, and the posteriors agreed with MCMC, including the correlations between parameters.
+        </p>
+        <p class="research-links"><a href="https://github.com/wei-lingfeng/NPE-Stellar-Spectra" target="_blank"><i class="fa fa-github"></i> Code</a> &middot; <a href="https://github.com/wei-lingfeng/NPE-Stellar-Spectra/blob/main/PHYSReport.pdf" target="_blank">Report</a></p>
+      </div>
+    </div>
+
+    <hr class="research-sep">
+
+    <div class="row research-item">
+      <div class="col-md-12">
+        <figure class="research-figure">
+          <img class="img-responsive" src="img/research/wd1_density.png" alt="Stellar density maps of Westerlund 1 in three mass bins">
+          <figcaption>Stellar density maps of Westerlund 1 for low-, mid-, and high-mass stars (Wei et al. 2025, Fig. 14).</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-12">
+        <div class="research-title">
+          <a href="https://arxiv.org/abs/2501.16755" target="_blank">Structure and Dynamics of Westerlund 1</a>
+        </div>
+        <p class="research-meta">UC San Diego &amp; UC Berkeley &middot; 2023&ndash;2025 &middot; Advisors: Prof. Jessica Lu, Prof. Quinn Konopacky</p>
+        <p class="research-tags">Gaussian mixture models &middot; Minimum spanning trees &middot; Bayesian inference &middot; Dask &middot; multiprocessing</p>
+        <p>
+          Westerlund 1 is the most massive young star cluster in the Milky Way. Using multi-epoch Hubble Space Telescope data, I analyzed its structure and unusual initial mass function, separated cluster members from field stars with Gaussian mixture models and simulated stars, measured mass segregation with minimum spanning trees, and fit the cluster's structure and dynamics with Bayesian inference. Computing the density maps above was the main bottleneck. I rewrote it with image super-sampling, parallel point-in-polygon tests, and distributed Dask-GeoPandas, cutting the runtime from 45 minutes to 40 seconds (67&times;).
+        </p>
+        <p class="research-links"><a href="https://doi.org/10.3847/1538-4357/adfc60" target="_blank">Paper (ApJ 2025)</a> &middot; <a href="https://arxiv.org/abs/2501.16755" target="_blank">arXiv</a></p>
+      </div>
+    </div>
+
+    <hr class="research-sep">
+
+    <div class="row research-item">
+      <div class="col-md-5 col-sm-12">
+        <figure class="research-figure">
+          <img class="img-responsive" src="img/research/onc_kinematics.png" alt="Three-dimensional kinematics of the Orion Nebula Cluster: proper-motion arrows colored by radial velocity">
+          <figcaption>3D kinematics of the inner Orion Nebula Cluster: arrows show proper motions, colors show radial velocities (Wei et al. 2024).</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-7 col-sm-12">
+        <div class="research-title">
+          <a href="https://arxiv.org/abs/2312.04751" target="_blank">Mass-dependent Kinematics of the Orion Nebula Cluster</a>
+        </div>
+        <p class="research-meta">UC San Diego &middot; 2020&ndash;2023 &middot; Advisors: Prof. Quinn Konopacky, Prof. Chris Theissen</p>
+        <p class="research-tags">SQL (ADQL) &middot; Catalog cross-matching &middot; MCMC (emcee) &middot; Nested sampling &middot; Forward modeling</p>
+        <p>
+          The Orion Nebula Cluster is the nearest site of ongoing massive star formation. I built a pipeline that merges catalogs from Keck, Hubble, Gaia, and APOGEE through SQL (ADQL) queries and cross-matching. I then forward-modeled high-resolution Keck spectra with MCMC and nested sampling to measure each star's velocity and properties with uncertainties. The resulting 3D velocity map shows that lower-mass stars move faster relative to their neighbors, which I compared with hydrodynamical simulations of cluster formation.
+        </p>
+        <p class="research-links"><a href="https://doi.org/10.3847/1538-4357/ad1401" target="_blank">Paper (ApJ 2024)</a> &middot; <a href="https://arxiv.org/abs/2312.04751" target="_blank">arXiv</a></p>
+      </div>
+    </div>
+
+    <hr class="research-sep">
+
+    <div class="row research-item">
+      <div class="col-md-5 col-sm-12">
+        <figure class="research-figure">
+          <img class="img-responsive" src="img/research/nbody_stability.png" alt="Stability map of simulated planetary systems compared with the relativistic and non-relativistic criteria">
+          <figcaption>Each point is an N-body simulation; the red curve is the relativistic stability criterion (Wei et al. 2021).</figcaption>
+        </figure>
+      </div>
+      <div class="col-md-7 col-sm-12">
+        <div class="research-title">
+          <a href="https://arxiv.org/abs/2106.02276" target="_blank">Relativistic Dynamical Stability Criterion of Multiplanet Systems</a>
+        </div>
+        <p class="research-meta">UCLA &middot; 2018&ndash;2021 &middot; Advisor: Prof. Smadar Naoz</p>
+        <p class="research-tags">C &middot; N-body simulation &middot; Analytical modeling &middot; Parameter sweeps</p>
+        <p>
+          Planets close to their star can be destabilized by a distant companion, while general relativity can protect them. I derived an analytical criterion that predicts whether such a system stays stable, and validated it against N-body simulations integrated for up to 170 million years, run with <a href="https://github.com/wei-lingfeng/Rings-GR" target="_blank">Rings-GR</a>, a C simulator I extended with general relativity. The criterion replaces costly simulations and can rule out where undiscovered companions may hide.
+        </p>
+        <p class="research-links"><a href="https://doi.org/10.3847/1538-4357/ac2c70" target="_blank">Paper (ApJ 2021)</a> &middot; <a href="https://arxiv.org/abs/2106.02276" target="_blank">arXiv</a> &middot; <a href="https://github.com/wei-lingfeng/Rings-GR" target="_blank"><i class="fa fa-github"></i> Rings-GR</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Software Start -->
+<section class="module" id="Software">
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2>Open-Source Software</h2>
+      </div>
+    </div>
+    <div class="row research-item">
+      <div class="col-md-12">
+        <div class="research-title">
+          <a href="https://github.com/MovingUniverseLab/flystar" target="_blank">FlyStar</a>
+        </div>
+        <p class="research-meta">Astrometric alignment toolkit &middot; Prof. Jessica Lu's group</p>
+        <p>
+          FlyStar originally fit each star's motion one at a time with an iterative optimizer. Every motion model in it is linear in its parameters, so I replaced the per-star loop with closed-form weighted least squares solved for all stars at once. The fits run 500&ndash;1000&times; faster on catalogs of 10,000+ stars, and the speed-up grows with catalog size. I also cut alignment memory use by about half, and added unit tests, documentation, and PyPI packaging.
+        </p>
+      </div>
+      <div class="col-md-10 col-md-offset-1 col-sm-12">
+        <figure class="research-figure">
+          <img class="img-responsive" src="img/research/flystar_speedup.png" alt="Per-star versus batched fit time and speed-up as a function of the number of stars">
+          <figcaption>Per-star vs. batched fit time (left) and speed-up (right) against the number of stars.</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ul class="software-list">
+          <li><a href="https://github.com/astropy/SPISEA" target="_blank"><strong>SPISEA</strong></a>: stellar population synthesis (Astropy-affiliated). Optimized data structures for a 2&times; speed-up.</li>
+          <li><a href="https://github.com/chihchunhsu/smart" target="_blank"><strong>SMART</strong></a>: spectral modeling and radial-velocity tool. Developed the MCMC spectral-fitting pipeline.</li>
+          <li><a href="https://github.com/wei-lingfeng/Rings-GR" target="_blank"><strong>Rings-GR</strong></a>: secular orbital evolution simulator in C, extended with general relativity.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr>
+
+<!-- Publications Start -->
+<section class="module" id="Publications">
+  <div class="container">
+    <div class="row">
+      <div class="section-title">
+        <h2>Publications</h2>
+      </div>
+      <p class="research-meta">From <a href="https://orcid.org/0000-0002-2612-2933" target="_blank">ORCID 0000-0002-2612-2933</a>. Full list on <a href="https://scholar.google.com/citations?user=g0IS9mIAAAAJ&amp;hl=en" target="_blank">Google Scholar</a>.</p>
+      <ol class="pub-list">
+        <li><strong>Wei, L.</strong>, Lu, J. R., Boyle, P. C., et al. 2025, <em>Structure and Dynamics of the Young Massive Star Cluster Westerlund 1</em>, ApJ, 992, 213. <a href="https://doi.org/10.3847/1538-4357/adfc60" target="_blank">[DOI]</a> <a href="https://arxiv.org/abs/2501.16755" target="_blank">[arXiv]</a></li>
+        <li><strong>Wei, L.</strong>, Theissen, C. A., Konopacky, Q. M., Lu, J. R., Hsu, C.-C., &amp; Kim, D. 2024, <em>The 3D Kinematics of the Orion Nebula Cluster. II. Mass-dependent Kinematics of the Inner Cluster</em>, ApJ, 962, 174. <a href="https://doi.org/10.3847/1538-4357/ad1401" target="_blank">[DOI]</a> <a href="https://arxiv.org/abs/2312.04751" target="_blank">[arXiv]</a></li>
+        <li>Faridani, T. H., Naoz, S., <strong>Wei, L.</strong>, &amp; Farr, W. M. 2022, <em>Hiding Planets Near and Far: The Parameter Space of Hidden Companions for Known Planetary Systems</em>, ApJ, 932, 78. <a href="https://doi.org/10.3847/1538-4357/ac6e38" target="_blank">[DOI]</a> <a href="https://arxiv.org/abs/2107.07529" target="_blank">[arXiv]</a></li>
+        <li>Theissen, C. A., Konopacky, Q. M., Lu, J. R., Kim, D., Zhang, S. Y., Hsu, C.-C., Chu, L., &amp; <strong>Wei, L.</strong> 2022, <em>The 3D Kinematics of the Orion Nebula Cluster: NIRSPEC-AO Radial Velocities of the Core Population</em>, ApJ, 926, 141. <a href="https://doi.org/10.3847/1538-4357/ac3252" target="_blank">[DOI]</a> <a href="https://arxiv.org/abs/2105.05871" target="_blank">[arXiv]</a></li>
+        <li><strong>Wei, L.</strong>, Naoz, S., Faridani, T., &amp; Farr, W. M. 2021, <em>Relativistic Dynamical Stability Criterion of Multiplanet Systems with a Distant Companion</em>, ApJ, 923, 118. <a href="https://doi.org/10.3847/1538-4357/ac2c70" target="_blank">[DOI]</a> <a href="https://arxiv.org/abs/2106.02276" target="_blank">[arXiv]</a></li>
+      </ol>
     </div>
   </div>
 </section>
@@ -76,8 +230,9 @@ permalink: /
       <div class="section-title">
         <h2>Contact</h2>
       </div>
-      <p>University of California, San Diego<br>Center for Astrophysics and Space Sciences<br>9500 Gilman Drive<br>La Jolla, CA 92039-0424<br></p>
-      <p>Email: <a href="mailto:l3wei@ucsd.edu" style="font-weight: bold;";>l3wei@ucsd.edu</a></p>
+      <p>Department of Physics and Astronomy<br>University of California, Los Angeles<br>Los Angeles, CA 90095<br></p>
+      <p>Email: <a href="mailto:lwei@astro.ucla.edu" style="font-weight: bold;">lwei@astro.ucla.edu</a></p>
+      <p><a href="https://github.com/wei-lingfeng" target="_blank"><i class="fa fa-github"></i> GitHub</a> &middot; <a href="https://www.linkedin.com/in/wei-lingfeng/" target="_blank"><i class="fa fa-linkedin"></i> LinkedIn</a> &middot; <a href="https://scholar.google.com/citations?user=g0IS9mIAAAAJ&amp;hl=en" target="_blank">Google Scholar</a> &middot; <a href="https://orcid.org/0000-0002-2612-2933" target="_blank">ORCID</a> &middot; <a href="files/CV_LingfengWei.pdf" target="_blank">CV</a></p>
     </div>
   </div>
 </section>

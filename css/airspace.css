@@ -871,3 +871,56 @@ footer .footer-manu ul li a:hover {
   text-align: justify;
   vertical-align: middle;
 }
+
+/* Research entries */
+.research-item {
+  padding-top: 1%;
+}
+.research-item .research-title {
+  padding-top: 0;
+  margin-bottom: 6px;
+}
+.research-meta {
+  color: #888;
+  font-size: 95%;
+  margin-bottom: 4px;
+}
+.research-tags {
+  color: #5a7a9a;
+  font-size: 90%;
+  font-style: italic;
+}
+.research-links a {
+  font-weight: bold;
+}
+.research-figure {
+  margin: 10px 0 20px 0;
+}
+.research-figure img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+}
+.research-figure figcaption {
+  color: #888;
+  font-size: 85%;
+  text-align: center;
+  margin-top: 6px;
+}
+hr.research-sep {
+  border-width: 1px;
+  margin: 30px 0;
+}
+.software-list li,
+.pub-list li {
+  margin-bottom: 10px;
+  line-height: 170%;
+}
+
+/* Gap between a side-by-side figure and its text */
+@media (min-width: 992px) {
+  .research-item > .col-md-5 {
+    padding-right: 40px;
+  }
+}
